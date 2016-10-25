@@ -93,7 +93,7 @@ def post(text, url, channel):
     data['icon_url'] = config.ICON_URL
 
     headers = {'Content-Type': 'application/json'}
-    r = requests.post(url, headers=headers, data=json.dumps(data), verify=False)
+    r = requests.post(url, headers=headers, data=json.dumps(data), verify=True)
 
     if r.status_code is not requests.codes.ok:
         print 'Encountered error posting to Mattermost URL %s, status=%d, response_body=%s' % (url, r.status_code, r.json())
